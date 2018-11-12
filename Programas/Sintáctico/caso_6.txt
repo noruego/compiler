@@ -1,0 +1,39 @@
+#########################################################################################
+#                                                                                       				#
+#                       TECNOLÓGICO NACIONAL DE MÉXICO EN CELAYA                        			#
+#                               LENGUAJES Y AUTÓMATAS II                                				#
+#                                       EQUIPO 1                                        				#
+#                                                                                       				#
+#   CASO DE ESTUDIO 6: ASIGNACIÓN INCORRECTA                                            			#
+#                                                                                       				#
+#   EN EL SIGUIENTE CASO DE ESTUDIO SE PRESENTA LA SITUACIÓN DONDE SE PRESENTA UNA      		#
+#   ASIGNACIÓN INCORRECTA DE ACUERDO A LAS REGLAS GRAMATICALES ESTABLECIDAS.            		#
+#   SE ESPERA QUE EL ERROR SEA IDENTIFICADO POR EL MANEJADOR DE ERRORES, Y ASU VEZ      		#
+#   SEA NOTIFICADO.                                                                     				#
+#                                                                                       				#
+#########################################################################################
+
+Execute(){
+    Numeric numero;
+    Numeric primo= “HOLA”;
+    Numeric residuo;
+    numero=Read("Ingresa un numero para saber si es primo");
+    For(Numeric s=1: s<numero+1: Inc s){
+        For(Numeric g=0 : g<1 : Inc g){
+            If(numero > s Or numero == s){
+                numero = numero - s;
+                g=g-1;
+            }
+        }
+        residuo=numero;
+        if(residuo == 0){
+            primo = primo + 1;
+        }
+    }
+    If(primo==1 || primo==2){
+        Write("El numero ", numero, " es primo");        
+    }
+    Else{
+        Write("El numero ", numero, " no es primo");
+    }
+}

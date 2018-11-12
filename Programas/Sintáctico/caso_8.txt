@@ -1,0 +1,37 @@
+#########################################################################################
+#                                                                                       				#
+#                       TECNOLÓGICO NACIONAL DE MÉXICO EN CELAYA                        			#
+#                               LENGUAJES Y AUTÓMATAS II                                				#
+#                                       EQUIPO 1                                        				#
+#                                                                                       				#
+#   CASO DE ESTUDIO 8: DECLARACIÓN DE PARÁMETROS INCORRECTA                             		#      
+#                                                                                       				#
+#                                                                                       				#
+#   EN EL SIGUIENTE CASO DE ESTUDIO SE PRESENTA LA SITUACIÓN DONDE SE HACE UN PASE DE    	#
+#   LA FUNCIÓN READ DE MAL MANERA DE ACUERDO A LAS REGLAS GRAMATICALES ESTABLECIDAS     	#
+#   SE ESPERA QUE EL ERROR SEA IDENTIFICADO POR EL MANEJADOR DE ERRORES, Y ASU VEZ      		#
+#   SEA NOTIFICADO.                                                                     				#
+#                                                                                       				#
+#########################################################################################
+Execute(){
+    Numeric numero;
+    Numeric mayor;
+    Numeric menor;
+    For(Numeric s=0: s*5: Inc s){
+        numero=Read(Ingresa un numero);
+        If(s==0){
+            mayor=numero;
+            menor=numero;
+        }
+        Else{
+            If(numero>mayor){
+                mayor=numero;
+            }
+            If(numero<menor){
+                menor=numero;
+            }
+        }
+    }
+    Write("El numero mayor es:", mayor);
+    Write("El numero menor es:", menor);
+}

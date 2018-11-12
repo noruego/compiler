@@ -1,0 +1,41 @@
+#########################################################################################
+#                                                                                       				#
+#                       TECNOLÓGICO NACIONAL DE MÉXICO EN CELAYA                        			#
+#                               LENGUAJES Y AUTÓMATAS II                                				#
+#                                       EQUIPO 1                                        				#
+#                                                                                       				#
+#   CASO DE ESTUDIO 4: FIN DE INSTRUCCIÓN INCORRECTA                                    			#
+#                                                                                       				#
+#   EN EL SIGUIENTE CASO DE ESTUDIO SE PRESENTA LA SITUACIÓN DONDE UNA INSTRUCCIÓN      		#
+#   NO TERMINA DE MANERA CORRECTA DE ACUERDO A LAS REGLAS GRAMATICALES ESTABLECIDAS.    	#
+#   SE ESPERA QUE EL ERROR SEA IDENTIFICADO POR EL MANEJADOR DE ERRORES, Y ASU VEZ      		#
+#   SEA NOTIFICADO.                                                                     				#
+#                                                                                       				#
+#                                                                                       				#
+#########################################################################################
+
+
+Main(){
+    Numeric cantidad.
+    Numeric precio;
+    Numeric subtotal;
+    Numeric total=0;
+    String opcion="";
+    For(Numeric s=0: s<1: Inc s){
+        cantidad=Read("Ingrese la cantidad de productos");
+        precio=Read("Ingrese el precio unitario del producto");
+        subtotal=0;
+        If(cantidad > 25){
+            subtotal = (cantidad * precio) * .80;
+        }
+        Esle{
+            subtotal = cantidad * precio;
+        }
+        total = total + subtotal;
+        opcion = Read("¿Desea ingresa otro producto?");
+        If(opcion == "si"){
+            s=s-1;
+        }
+    }
+    Write("El total es:", total);
+}

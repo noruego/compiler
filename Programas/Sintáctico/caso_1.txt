@@ -1,0 +1,40 @@
+########################################################################################
+#   				                                                                                  	 #                        
+#                      TECNOLÓGICO NACIONAL DE MÉXICO EN CELAYA  			                      	#
+#                                LENGUAJES Y AUTÓMATAS II                              				#
+#                                    EQUIPO 1                                          				#
+#               CASO DE ESTUDIO 1: INICIO DE PROGRAMA INCORRECTO                       			#                                                                      # #                                                                                     
+#   EN EL SIGUIENTE CASO DE ESTUDIO SE PRESENTA LA SITUACIÓN DONDE SE ESTABLECE        		#    
+#   DE UNA MANERA INCORRECTA EL INICIO DEL PROGRAMA DE ACUERDO A LAS REGLAS            		#
+#  GRAMATICALES ESTABLECIDAS.                                                         			#
+#   SE ESPERA QUE EL ERROR SEA IDENTIFICADO POR EL MANEJADOR DE ERRORES, Y ASU VEZ     		#
+#   SEA NOTIFICADO.                                                                                                                                                        	#                                                                                      #                                                                                      #
+########################################################################################
+#MÉTODO PRINCIPAL
+Execute()
+{
+#DECLARACIÓN DE VARIABLES
+    Numeric cantidad;
+    Numeric precio;
+    Numeric subtotal;
+    Numeric total=0;
+    String opcion="";
+#CICLO PARA SOLICITAR CANTIDAD Y PRECIO DE UN PRODUCTO
+#SE LEEN LOS DATOS QUE EL USUARIO INGRESE
+        cantidad=Read("Ingrese la cantidad de productos");
+        precio=Read("Ingrese el precio unitario del producto");
+        subtotal=0;
+#SI LA CANTIDAD DE PRODUCTOS ES MAYOR A 25 SE APLICA UN DESCUENTO DEL 20%
+        If(cantidad > 25){
+            subtotal = (cantidad * precio) * .80;
+        }
+        Else{
+            subtotal = cantidad * precio;
+        }
+        total = total + subtotal;
+        opcion = Read("¿Desea ingresa otro producto?");
+        If(opcion == "si"){
+            s=s-1;
+        }
+    Write("El total es:", total);
+}
