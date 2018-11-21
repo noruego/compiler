@@ -5,6 +5,9 @@
  */
 package compilador;
 
+
+import org.fife.ui.rtextarea.*;
+import org.fife.ui.rsyntaxtextarea.*;
 import de.javasoft.plaf.synthetica.SyntheticaAluOxideLookAndFeel;
 import java.awt.BorderLayout;
 import java.awt.Desktop;
@@ -31,6 +34,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
+import org.fife.ui.rsyntaxtextarea.folding.FoldParserManager;
 
 /**
  *
@@ -52,7 +56,8 @@ public class Analizador extends JFrame implements ActionListener, KeyListener{
     JMenu mArchivo, mAnalisis, mAyuda, mDocumentacion;
     JMenuItem iNuevo, iAbrir, iGuardar, iSalir, iLexico, iSintactico, iSemantico, iAnalizar, iAcercaDe, iManual, iDocLexico, iDocSintactico, iDocSemantico; 
     JScrollPane spCodigo, spSalida, spMostrar;
-    JTextArea taCodigo, taLinea, taSalida;
+    JTextArea  taLinea, taSalida;
+    RSyntaxTextArea taCodigo;
     JButton bCerrar;
     ArrayList<String> lexemas;
     ArrayList<Integer> numLinea;
@@ -150,8 +155,15 @@ public class Analizador extends JFrame implements ActionListener, KeyListener{
         taLinea = new JTextArea(30, 3);
         taLinea.append(numeroLinea + "");
         taLinea.setEditable(false);
-        taCodigo = new JTextArea(30, 70);
+        taCodigo = new RSyntaxTextArea (30, 70);
         taCodigo.addKeyListener(this);
+        AbstractTokenMakerFactory atmf = (AbstractTokenMakerFactory)TokenMakerFactory.getDefaultInstance();
+        
+        atmf.putMapping("text/myLanguage", "compilador.ExampleTokenMaker");
+        taCodigo.setSyntaxEditingStyle("text/myLanguage");
+        
+        TokenMap to = new TokenMap();
+        taCodigo.setCodeFoldingEnabled(true);
         taSalida = new JTextArea(7, 74);
         taSalida.setEditable(false);
         
